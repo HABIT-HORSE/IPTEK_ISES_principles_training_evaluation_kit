@@ -1,0 +1,104 @@
+<HTML>
+</HTML>
+<BODY>
+<H1>CowLog 2.0: Users manual</H1>
+Matti Pastell <br>matti.pastell@helsinki.fi
+
+<H2>Citing CowLog</H2>
+<b>To cite CowLog in publications use: </b>
+<BR>
+Hänninen, L. & Pastell, M. 2009. CowLog: Open source software for
+coding behaviors from digital video. Behavior Research Methods. 41(2),
+472-476.
+
+<H2>Setting up a project</H2>
+
+<h3>General Settings - tab</h3>
+
+You will need to define a project before you can start coding. Choose
+"File -&gt; New Project" from the menu. You can define the name of the
+project and other basic information. 
+
+Here is a description of less self explanatory fields:
+
+<ul>
+  <li><b>Video directory.</b> This is where CowLog will look for your
+  video files by default.</li>
+  <li><b>Data directory.</b></li> This is where CowLog stores your
+  codings.
+  <li><b>Behavioral codes.</b> Here you can define your
+  ethogram. Write behaviors as comma separated list with behaviors
+  for each class on a separate line. If you'll leave this empty
+  CowLog will use the default numbered codes.</li>
+</ul>
+
+If your project uses modifiers check the <b>Use modifiers</b> check
+box and write the behaviors that have modifiers in the <b>Codes with
+  modifiers</b> box as a comma sepated list (behaviors from all
+classes in the same list).  
+
+<h3>Video Player Settings - tab</h3>
+
+You can use either <a href ="http://www.mplayerhq.hu/">MPlayer</a> or
+<a href="http://videolan.org">VLC player</a> as a video player.
+
+<p><b>MPlayer</b> comes with CowLog Windows installations and can be
+  installed on most Linux distributions trough the package manager
+  and is avalaible as a binary for Mac OS X. You can also choose
+  video driver for MPlayer if the default option doesn't work on your hardware.</p> 
+
+<p><b>VLC</b> player needs to be installed separately on all
+  platforms. Once VLC is installed CowLog should find it automatically.
+</p>
+
+<p>Both video players should offer similar coding experience for
+  video formats that they support. If you experience problems with
+  your video format you can try changing the player. </p>
+
+<H2>Coding session</H2>
+
+<p>After you have defined you project you can start coding. Choose "File
+-&gt; New Subject" to start coding. The name of the datafile will be
+formed from <b>Subject</b> and <b>Start time</b> fields. You can
+choose on or several videos using the <b>Video file(s):</b> button. If
+you choose several videos they will all be played at the same
+  time.</p> Click <b>OK</b> and you should see the video opened and you can
+start coding. 
+
+<b>END</b> the coding session using the stop-button. It will add end
+time and code to your datafile You should do this even if the video
+has ended before you press it.
+
+
+Code behaviors by pressing coding buttons with the mouse or by
+ pressing alt+''underlined character'' from the keyboard. e.g to code
+ behavior 1 from column 1 press ''alt+1''. You can see five previous
+ code in current code indicator.
+
+You can cancel incorrect codes with the <b>Undo</b> button.
+
+
+<H2>Analyzing the results</H2>
+
+There is no support for analysing the data from this version yet. We
+have found out that almost every project needs some specific work in
+doing the analysis and its quite difficult to come up with good
+general analysis code without significant input. However, I'll try to
+write some analysis code for simple cases in the future.
+
+The result format depends on the selected configuration.  If there are
+no modifiers the result format has three columns:
+
+
+<ol>
+<li>Time. Seconds from beginning.</li>
+<li>Code. The behavioral code.</li>
+<li>Class. The class that the code belongs to.</li>
+</ol>
+
+If modifiers are used there are result format will be slightly different: The first column will contain the time and the following columns contains the behavioral codes followed by potential modifiers. 
+
+
+
+</BODY>
+</HTML>
