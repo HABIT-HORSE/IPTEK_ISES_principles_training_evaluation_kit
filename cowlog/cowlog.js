@@ -698,6 +698,46 @@ saveTextAsFile(data,filename);
 
 function saveTextAsFile(textToWrite,fileNameToSaveAs)
 {
+
+var textFileAsBlob = new Blob([textToWrite], {type:'text/plain'});
+
+/* Next line, using FileSaver.js
+ * A saveAs() FileSaver implementation.
+ * 1.2.2
+ *
+ * By Eli Grey, http://eligrey.com
+ * License: MIT
+ *   See https://github.com/eligrey/FileSaver.js/blob/master/LICENSE.md
+ */
+saveAs(textFileAsBlob, fileNameToSaveAs);
+
+/*
+Supported browsers
+------------------
+
+| Browser        | Constructs as | Filenames    | Max Blob Size | Dependencies |
+| -------------- | ------------- | ------------ | ------------- | ------------ |
+| Firefox 20+    | Blob          | Yes          | 800 MiB       | None         |
+| Firefox < 20   | data: URI     | No           | n/a           | [Blob.js](https://github.com/eligrey/Blob.js) |
+| Chrome         | Blob          | Yes          | [500 MiB][3]  | None         |
+| Chrome for Android | Blob      | Yes          | [500 MiB][3]  | None         |
+| Edge           | Blob          | Yes          | ?             | None         |
+| IE 10+         | Blob          | Yes          | 600 MiB       | None         |
+| Opera 15+      | Blob          | Yes          | 500 MiB       | None         |
+| Opera < 15     | data: URI     | No           | n/a           | [Blob.js](https://github.com/eligrey/Blob.js) |
+| Safari 6.1+*   | Blob          | No           | ?             | None         |
+| Safari < 6     | data: URI     | No           | n/a           | [Blob.js](https://github.com/eligrey/Blob.js) |
+
+*/
+
+}
+
+// Next is Steve's version of local file save. This works in Chrome and Firefox, under Windows.
+
+/*
+
+function saveTextAsFile(textToWrite,fileNameToSaveAs)
+{
    // var textToWrite = document.getElementById("inputTextToSave").value;
     var textFileAsBlob = new Blob([textToWrite], {type:'text/plain'});
    // var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAs").value;
@@ -724,6 +764,8 @@ function saveTextAsFile(textToWrite,fileNameToSaveAs)
 
     downloadLink.click();
 }
+
+*/
 
 /*************  END STEVE ADDITION ********************************/
 

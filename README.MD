@@ -1,6 +1,6 @@
 IPTEK (ISES Principles Training Evaluation Kit)
 
-NOTE: in this version, CowLog DOES NOT REQUIRE AN INTERNET CONNECTION and may be run entirely locally.
+NOTE: in this version, Steve's customised version of CowLog DOES NOT REQUIRE AN INTERNET CONNECTION and may be run entirely locally.
 
 Author:  Steve North
 Author URI:  http://www.cs.nott.ac.uk/~pszsn/
@@ -28,9 +28,27 @@ Steve's modifications to CowLog in this version are:
 In index.html, the ISES principles ethogram behaviour numbers are hard-coded and come up immediately, ready to use.
 All paths to CSS, JavaScrip, images etc. are now relative.
 
-This version of CowLog can be run locally on a device, and it does not require an Internet connection to save the output file. The local text file saving is achieved using a BLOB. In cowlog.js, see line 697.
+This version of CowLog can be run locally on a device, and it does not require an Internet connection to save the output file. The local text file saving is achieved using FileSaver.js (see cowlog.js, see line 697):
 
+A saveAs() FileSaver implementation.
+1.2.2
+By Eli Grey, http://eligrey.com
+License: MIT
+See https://github.com/eligrey/FileSaver.js/blob/master/LICENSE.md
 
+This expands the devices and browsers that should support local file saving in CowLog to:
 
+| Browser        | Constructs as | Filenames    | Max Blob Size | Dependencies |
+| -------------- | ------------- | ------------ | ------------- | ------------ |
+| Firefox 20+    | Blob          | Yes          | 800 MiB       | None         |
+| Firefox < 20   | data: URI     | No           | n/a           | [Blob.js](https://github.com/eligrey/Blob.js) |
+| Chrome         | Blob          | Yes          | [500 MiB][3]  | None         |
+| Chrome for Android | Blob      | Yes          | [500 MiB][3]  | None         |
+| Edge           | Blob          | Yes          | ?             | None         |
+| IE 10+         | Blob          | Yes          | 600 MiB       | None         |
+| Opera 15+      | Blob          | Yes          | 500 MiB       | None         |
+| Opera < 15     | data: URI     | No           | n/a           | [Blob.js](https://github.com/eligrey/Blob.js) |
+| Safari 6.1+*   | Blob          | No           | ?             | None         |
+| Safari < 6     | data: URI     | No           | n/a           | [Blob.js](https://github.com/eligrey/Blob.js) |
 
-For usage, please see: instructions.pdf
+For usage of IPTEK, please see: instructions.pdf
