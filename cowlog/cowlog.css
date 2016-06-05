@@ -227,6 +227,16 @@ h1.header
     color : white;
 }
 
+/* Steve added for smaller heading line */
+h3.header
+{
+    padding-bottom : 10px;
+    margin-bottom : 0px;
+    font-family : Verdana;
+    font-weight : normal;
+    color : white;
+}
+
 #videocontainer
 {
     padding-top : 10px;

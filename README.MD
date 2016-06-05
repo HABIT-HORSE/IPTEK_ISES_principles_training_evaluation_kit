@@ -1,6 +1,6 @@
 IPTEK (ISES Principles Training Evaluation Kit)
 
-NOTE: in this version, CowLog still requires an Internet connection (to access the code for saving files), even when the web app itself is run locally.
+NOTE: in this version, CowLog DOES NOT REQUIRE AN INTERNET CONNECTION and may be run entirely locally.
 
 Author:  Steve North
 Author URI:  http://www.cs.nott.ac.uk/~pszsn/
@@ -28,6 +28,9 @@ Steve's modifications to CowLog in this version are:
 In index.html, the ISES principles ethogram behaviour numbers are hard-coded and come up immediately, ready to use.
 All paths to CSS, JavaScrip, images etc. are now relative.
 
-This version can be run locally on a device, but it still requires an Internet connection to save the output file. This is because file saving uses a remote PHP file (export.php) hosted by the original developer(http://run.cowlog.org/export.php) - see line 673 in cowlog.js.
+This version of CowLog can be run locally on a device, and it does not require an Internet connection to save the output file. The local text file saving is achieved using a BLOB. In cowlog.js, see line 697.
+
+
+
 
 For usage, please see: instructions.pdf

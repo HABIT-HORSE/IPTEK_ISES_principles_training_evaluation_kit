@@ -663,6 +663,8 @@ Storage.prototype.getObject = function(key) {
 }
 
 function exportData(data, filename){
+
+/*
 //Export results to text files
 //http://stackoverflow.com/questions/921037/jquery-table-to-csv-export
     if (navigator.onLine)
@@ -684,7 +686,46 @@ action='http://run.cowlog.org/export.php' method='post'> \
 	alert("You seem to be offline, can't process request");
 
     }
+	
+*/
+
+// Steve add:
+saveTextAsFile(data,filename);
+	
 }
+
+/*************  START STEVE ADDITION ********************************/
+
+function saveTextAsFile(textToWrite,fileNameToSaveAs)
+{
+   // var textToWrite = document.getElementById("inputTextToSave").value;
+    var textFileAsBlob = new Blob([textToWrite], {type:'text/plain'});
+   // var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAs").value;
+      var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    //if (window.webkitURL != null)
+	if (window.URL != null)
+    {
+        // Chrome allows the link to be clicked
+        // without actually adding it to the DOM.
+        //downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+		downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+    }
+    else
+    {
+        // Firefox requires the link to be added to the DOM
+        // before it can be clicked.
+        downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+        downloadLink.onclick = destroyClickedElement;
+        downloadLink.style.display = "none";
+        document.body.appendChild(downloadLink);
+    }
+
+    downloadLink.click();
+}
+
+/*************  END STEVE ADDITION ********************************/
 
 
 function bindKeys()
