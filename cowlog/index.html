@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://run.cowlog.org/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><title>CowLog 2.0 - Code behaviors from Video</title>
+  
+  
+	<meta name="description" content="CowLog - Behavior coding software">
+	<meta name="keywords" content="CowLog, Ethology">
+	<meta name="author" content="Matti Pastell">	
+
+    <link rel="stylesheet" type="text/css" href="cowlog.css" media="screen"> 
+   
+   
+	<link rel="icon" href="almod.png"> 
+	
+	
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="jquery.hotkeys.js"></script>
+	<script type="text/javascript" src="vlc.js"></script>
+	<script type="text/javascript" src="cowlog.js"></script>
+
+
+    
+    <script type="text/javascript">
+      //Google analytics code
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6474352-2']);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
+  </head>
+
+  <body onload="init()">
+    <div id="header"><h1 class="header">CowLog 2.0</h1></div>
+
+
+    <div id="content">
+
+      
+      <div id="buttoncontainer">
+	<label for="getVideo">Open videofile</label><br>
+	<input type="file" id="getVideo" accept="video/*" size="12"><br>
+	<button onclick="saveData()" title="Save results to a file" class="controlButton">Save results</button>
+	<button onclick="openData()" title="Open results in new window" class="controlButton">Open results</button><br>
+	
+	<input type="text" size="3" id="speed" title="Video playback rate as number">
+	<button onclick="setSpeed()" class="controlButton">Set speed</button><br>
+	<input type="text" size="3" id="size" title="Set video size compared to actual resolution">
+	<button onclick="setSize()" class="controlButton">Resize x original</button><br>
+
+
+	<!-- <div id="col1" class="buttons"> -->
+	<table>
+	  <tbody><tr class="controlButtonRow">
+	    <td><button onclick="video.play()" class="codeButton controlButton">Play</button></td>
+	    <td><button onclick="videoStop()" class="codeButton controlButton">Stop</button></td>
+	    <td><button onclick="video.pause()" class="codeButton controlButton">Pause</button></td>
+	  </tr>
+	  <tr class="controlButtonRow">
+	    <td><button onclick="videoBack()" class="codeButton controlButton">&lt;Seek</button></td>
+	    <td><input type="text" size="4" id="seekInput" value="5" title="Enter jump duration is seconds"></td>
+	    <td><button onclick="videoFwd()" class="codeButton controlButton">Seek &gt;</button></td>
+	  </tr>
+
+	  
+	 
+	  <tr id="buttonrow">
+	  
+	   <!--
+	    <td>
+	      <button onclick="code(this)">1</button><br>
+	      <button onclick="code(this)">2</button><br>
+	      <button onclick="code(this)">3</button><br>
+	      <button onclick="code(this)">4</button><br>
+	      <button onclick="code(this)">5</button><br>
+	      <button onclick="code(this)">6</button><br>
+	      <button onclick="code(this)">7</button><br>
+	      <button onclick="code(this)">8</button><br>
+	      <button onclick="code(this)">9</button><br>
+	      <button onclick="code(this)">10</button><br>
+	    </td>
+	   
+        -->
+		 
+		 <td>
+	      <button onclick="code(this)">1.1</button><br>
+	      <button onclick="code(this)">2.1</button><br>
+	      <button onclick="code(this)">3.1</button><br>
+	      <button onclick="code(this)">4.1</button><br>
+	      <button onclick="code(this)">5.1</button><br>
+	      <button onclick="code(this)">6.1</button><br>
+	      <button onclick="code(this)">7.1</button><br>
+	      <button onclick="code(this)">8.1</button><br>
+	      <button onclick="code(this)">9.1</button><br>
+	      <button onclick="code(this)">10.1</button><br>
+	    </td>
+		 
+   
+	    <!-- </div> -->
+
+	    <!-- <div id="col2" class = "buttons"> -->
+		
+		<!--
+	    <td>
+	      <button onclick="code(this)">11</button><br>
+	      <button onclick="code(this)">12</button><br>
+	      <button onclick="code(this)">13</button><br>
+	      <button onclick="code(this)">14</button><br>
+	      <button onclick="code(this)">15</button><br>
+	      <button onclick="code(this)">16</button><br>
+	      <button onclick="code(this)">17</button><br>
+	      <button onclick="code(this)">18</button><br>
+	      <button onclick="code(this)">19</button><br>
+	      <button onclick="code(this)">20</button><br>
+	    </td>
+		
+		 -->
+		 
+		 <td>
+	      <button onclick="code(this)">1.2</button><br>
+	      <button onclick="code(this)">2.2</button><br>
+	      <button onclick="code(this)">3.2</button><br>
+	      <button onclick="code(this)">4.2</button><br>
+	      <button onclick="code(this)">5.2</button><br>
+	      <button onclick="code(this)">6.2</button><br>
+	      <button onclick="code(this)">7.2</button><br>
+	      <button onclick="code(this)">8.2</button><br>
+	      <button onclick="code(this)">9.2</button><br>
+	      <button onclick="code(this)">10.2</button><br>
+	    </td>
+		
+	    <!-- </div> -->
+
+
+	    <!-- <div id="col3" class = "buttons"> -->
+		
+		<!--
+		
+	    <td>
+
+	      <button onclick="code(this)">21</button><br>
+	      <button onclick="code(this)">22</button><br>
+	      <button onclick="code(this)">23</button><br>
+	      <button onclick="code(this)">24</button><br>
+	      <button onclick="code(this)">25</button><br>
+	      <button onclick="code(this)">26</button><br>
+	      <button onclick="code(this)">27</button><br>
+	      <button onclick="code(this)">28</button><br>
+	      <button onclick="code(this)">29</button><br>
+	      <button onclick="code(this)">30</button><br>
+	    </td>
+		
+		-->
+		
+	  </tr>
+	  <!-- </div> -->
+	</tbody></table>
+
+	<div id="results"></div>
+      </div>
+      
+      <div id="right">
+	<div id="preferences">
+	  <div id="prefnav">
+	    <!-- <a href="javascript:toggleBlock('playerprefs')">Preferences</a>
+	    -->
+	    <a href="javascript:toggleBlock(&#39;subjectprefs&#39;)" id="subjectPrefsLink" title="Click for options">Subject</a>
+	    <a href="javascript:toggleBlock(&#39;projectprefs&#39;)" title="Click for options">Project</a>
+	    <a href="javascript:toggleBlock(&#39;help&#39;)" id="helphref" title="Click for options">Help</a>
+	  </div>
+	  
+	  <!-- <div id="playerprefs" class="prefs">
+	  </div> -->
+	  <div id="subjectprefs" class="prefs" style="display: none; width: 795px;">
+	    <p class="helper">Type in the name of the subject that
+	      you are coding and optionally date and time. These
+	      fields are used in naming the transcript file and their
+	      use is optional. Type in the time and date without delimiters.</p>
+	    
+	    Name: <input type="text" id="subjectName" title="The name of the subject"> <br>
+	    Date: <input type="date" id="subjectDate" title="Coding date without delimiters"><br>
+	    Time: <input type="time" id="subjectTime" title="Coding time without delimiters"><br>
+	    <button onclick="toggleBlock(&#39;subjectprefs&#39;)">Save</button>
+	  </div>
+
+
+	  <div id="projectprefs" class="prefs" style="display: none; width: 795px;">
+	    <p class="helper">You can define project settings
+	      including behavioral codes and save the settings.
+	      Settings are stored in
+	      browsers <a href="https://developer.mozilla.org/en/DOM/Storage" target="_blank">localStorage</a>
+	      for convinience, but that is not "safe" (they can
+	      disappear if you clear the cache) so they should also
+	      saved to a local file.
+	    </p>
+		      
+
+	      <h3>Load existing project</h3>
+
+	      
+	      <p id="LoadSettings">
+		<button onclick="loadSettings()"> Load
+		  project</button>
+		<select id="storedProjects"><option value="savedProject_Equitation Science " first="" principles'="" -="" compliant="" behaviours'="">Equitation Science 'First Principles' - compliant behaviours</option><option value="savedProject_silent nonverbal human behaviours across a video-mediated open display network">silent nonverbal human behaviours across a video-mediated open display network</option></select><br>
+
+	      Load from file:
+	      <input type="file" id="getSettings" accept="*.txt"><br>
+	      </p>
+	    
+	    <h3>Define new project</h3>
+
+	    Project name: <input type="text" id="projName"><br>
+	    Author: <input type="text" id="Author"><br>
+
+    	    Choose videoplayer: 
+	    <select id="player">
+	      <option value="html">Native HTLM5</option>
+	      <option value="vlc">VLC player</option>
+	    </select><br>
+	    
+	    Video directory: 
+	    <input type="text" id="videoDir" title="Set the video directory as full path
+			  e.g c:\videos or /home/matti/videos.
+			  This is only required with VLC player"><br>
+	    
+	    <!-- Basic config without modifiers -->
+	    Number of behavior classes:
+	    <input type="text" id="nClasses" size="4"><br>
+	    
+	    Use modifiers: <input type="checkbox" id="useModifiers"><br> 
+	    
+
+	    <p><button onclick="classBoxes()">Add codes</button></p>
+
+
+	    
+	    <div id="classInputs"><h3>Type in behaviors in each class as comma separated list</h3><p><button onclick="makeKeyInputs()">Add keyboard shortcuts</button></p><div id="keyInputs"></div><p><button onclick="saveSettings()">Save settings</button><button onclick="openSettings()">Open settings</button><button onclick="enableSettings()">Edit settings</button><button onclick="clearSettings()">Clear</button></p></div>
+	    
+	    <!-- 
+            Modifier related stuff
+            <span id="codelabel">N:o of codes in class 1:</span> <input type="text" id="classNo"></input>
+	    <button onclick="addCodeFields(1)">Add</button>
+	    <div id="addCodes">
+	      
+	    </div> -->
+	  
+	  </div>
+	  
+	  <div id="help" class="prefs" style="display: block; width: 795px;">
+
+	    <h2>Help</h2>
+
+	    <p>
+	      This is the help of this online version of Cowlog
+	      behavioral coding software. It should work with Firefox
+	      and Chrome. However you need to start Chrome with the
+	      "--allow-file-access-from-files" command line
+	      option. You will also need to allow pop-up windows for
+	      this site so that you can save the data.
+	    </p>
+	    
+	    <p>
+	      The program runs almost entirely in client side (in your
+	      webbrowser). Server is only accessed to format the
+	      results click the <span class="button">Save
+	      results</span> button and <span class="button">Save
+	      settings</span> button. No data is saved on the
+	      server. If you wan't to avoid server calls entirely you
+	      can use the <span class="button">Open results</span>
+	      and <span class="button">Open settings</span> buttons
+	      instead and save the data from opened browser
+	      windows. You can also save the webpage to your computer
+	      and use it offline (make sure you save the complete
+	      page).
+	    </p>
+
+	    
+	    <h3>Setting up the project</h3>
+
+	    <p>
+	      You can use choose between 2 video players:
+	      </p><ul>
+		<li> 
+		  HTML5 native video tag. You can set different
+		  playback rates for this player only in
+		  Chrome. Supports <a href="http://www.w3schools.com/html5/html5_video.asp">limited
+		  </a> video formats, but it doesn't need any plugins.
+		</li>
+		<li>
+		  <a href="http://www.videolan.org/" target="_blank">VLC</a> player plugin which supports
+		  a lot more video formats, but requires you to
+		  install VLC plugin.
+		</li>
+	      </ul>
+	    <p></p>
+
+	    <p>
+	      You can set the project properties in Project tab. You
+	      can choose the video player, the number of behavioral
+	      classes and behaviors and set the names of the
+	      classes. </p>
+
+	    <p>You can also choose to use modifiers, in which case the
+	    video will pause when a behavior with modifiers is
+	      selected. Modifier names are give as a comma separated
+	    list to a text input box, they can be from any main
+	      behavioral class.</p>
+	      
+	    <p>
+	      You don't need to name the buttons if you just
+	      want to use the numbers as your codes.
+	    </p>
+
+	    <h3>Coding and saving</h3>
+
+
+	    <p>Click the <span class="button">Browse</span>
+	      button to open a video from your harddrive, set the subject properties and start
+	      coding using the buttons. If you are using VLC player
+	      you need to set the video directory manually.</p>
+	    
+	      <p>After you have finished click
+	      the <span class="button">Save results</span>
+	      or <span class="button">Save results</span> button and a
+	      download or new window with the transciption should
+	      appear. If it doesn't make sure you have disabled the
+		pop-up blocker</p>
+
+	      <strong>The result format depends on the selected configuration.</strong>
+	    
+	    <p>
+	      If there are no modifiers the result format has three columns:
+	      </p><ol>
+		<li>Time. Seconds from beginning.</li>
+		<li>Code. The behavioral code.</li>
+		<li>Class. The class that the code belongs to.</li>
+	      </ol>
+	    <p></p>
+
+	    <p>
+	      If modifiers are used there are result format will be
+	      slightly different: The first column will contain the
+	      time and the following columns contains the behavioral codes
+	      followed by potential modifiers.
+	    </p>
+
+	    <h3>Analysis</h3>
+	    <p>There is no support for analysing the data from this
+	    version yet. We have found out that almost every project
+	    needs some specific work in doing the analysis and its
+	    quite difficult to come up with good general analysis code
+	    without significant input. However, I'll try to write some
+	    analysis code for simple cases in the future.</p>
+	    
+	    <h3>Implementation</h3>
+	    
+	    The code behind this website is written in Javascript and
+	    HTML uses the new HTML5 markup. HTML5 is an unfinished
+	    standard and thus the page doesn't work in all
+	    browsers. If you wan't to learn how to modify this page I
+	    suggest you start
+	    from <a href="http://www.w3schools.com/" target="_blank">w3schools</a>.
+	    
+
+
+	      <h3>Converting videos for suitable codecs:</h3>
+
+	    <p>
+	      You can use the following programs to convert video to HTML5 compatible format:
+
+	      </p><ul>
+		<li><a href="http://handbrake.fr/" target="_blank">Handbrake</a>
+		  convert to MP4 for Chrome.</li>
+		<li><a href="http://www.mirovideoconverter.com/" target="_blank">MiroVideoConverter</a> 
+		  convert to MP4 (Chrome), and Ogg or VP8 for Chrome of Firefox.</li>
+		<li><a href="http://v2v.cc/~j/ffmpeg2theora/" target="_blank">ffmpeg2theora</a> 
+		  convert to Ogg for Chrome or Firefox.</li>
+	      </ul>
+	    <p></p>
+
+	    <h3>More help</h3>
+	    
+	    Email me matti.pastell(a)helsinki.fi.
+
+	    <p><a href="javascript:showHelp()" id="helphref">Hide help</a>.</p>
+	  </div>
+	</div>
+
+	<div id="videocontainer">
+	  
+	  <video controls="controls" id="video"> </video>
+	</div>
+      </div>
+      <div id="blank"></div>
+    </div>
+
+    <div class="footer">
+
+      
+      <p><strong>Citation:</strong> Hänninen, L. &amp; Pastell, M. 2009. CowLog:
+	Open source software for coding behaviors from digital video. Behavior
+	Research Methods. 41(2), 472-476.</p>
+
+
+<div id="license">
+<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/"><img alt="Creative
+   Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png"></a><br><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/MovingImage" property="dct:title" rel="dct:type"><a href="http://mpastell.com/cowlog">CowLog</a></span>
+   by <a xmlns:cc="http://creativecommons.org/ns#" href="http://mpastell.com/" property="cc:attributionName" rel="cc:attributionURL">Matti Pastell</a> is licensed under
+   a <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/">Creative
+   Commons Attribution-NonCommercial 3.0 Unported License</a>.<br>
+
+    </div>
+    
+  
+
+</div></body></html>
